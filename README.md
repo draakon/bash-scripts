@@ -10,7 +10,7 @@ They may not be particularly optimised or elegant in style: just something got w
 Before submitting to the git, I have added a special header to all scripts, containing various information including description.
 However, I'll also copy those short comments here to have general overview of the repository:
 
-* **bitstamp_price.sh** - This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD).
+* **bitstamp-price.sh** - This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD).
 
 ### Usage
 
