@@ -10,7 +10,7 @@ They may not be particularly optimised or elegant in style: just something to ge
 Before submitting to Github, I have added a special header to all scripts, containing various information including description.
 However, I'll also copy those short comments here to have general overview of the repository:
 
-* **bitstamp-price.sh** - This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD).
+* **bitcoin-status.sh** - This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD) and the latest block height and age from BlockChain.info.
 
 ### Usage
 
