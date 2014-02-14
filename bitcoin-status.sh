@@ -30,6 +30,15 @@ echo -e "Update interval: "$INTERVAL" seconds."
 
 COUNTER=0
 
+# Colours table
+DEFAULT="\e[39m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+
 # don't want to use 'watch', because it runs in full screen mode
 while true; do
 	if [ "$PRICE" == "FAILED" ] || [ "$SKIP_BITSTAMP_INTERVALS" -eq 0 ] || [ "$(($COUNTER % ($SKIP_BITSTAMP_INTERVALS + 1)))" -eq 0 ] ; then
