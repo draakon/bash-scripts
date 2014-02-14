@@ -3,7 +3,7 @@
 #description	:This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD) and the latest block height and age from BlockChain.info.
 #author			:Kristjan Kaitsa
 #date			:20140214
-#version		:1.2.1
+#version		:1.2.2
 #usage:			:bash bitcoin-status.sh
 #notes:			:Install cURL and Jshon to use the script. Press Ctrl+C to exit script.
 #bash_version:	:4.2-5ubuntu3
@@ -51,14 +51,14 @@ while true; do
 	fi
 	
 	if [ "$PRICE" == "-1" ] ; then
-		echo -en "\nExtracting latest price information failed."
+		echo -en $RED"\nExtracting latest price information failed."$DEFAULT
 		PRICE="FAILED"
 	else
 		PRICE="$"$PRICE
 	fi
 
 	if [ "$HEIGHT" == "-1" ] || [ "$TIME" == "-1" ] ; then
-		echo -en "\nExtracting latest block information failed."
+		echo -en $RED"\nExtracting latest block information failed."$DEFAULT
 		HEIGHT="FAILED"
 		TIME_DELTA_HUMAN="FAILED"
 	else
