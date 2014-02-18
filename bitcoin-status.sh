@@ -18,7 +18,7 @@ BLOCKCHAIN_API_URL="https://blockchain.info/latestblock"
 TIME_FORMAT="%H:%M %e.%d.%Y" # format in what you want timestamp to be, check for variables: http://www.linuxmanpages.com/man1/date.1.php
 INTERVAL=60 # in seconds, set it by checking API request limits
 SKIP_BLOCKCHAIN_INVERVALS=8 # How many invevals skip blockchain request. E.g. if 0, then every interval (default 60s) is blockchain request made; if 1, then every other interval (skip one interval) and so on. May be necessary, because difference in API request limits.
-SKIP_BITSTAMP_INTERVALS=1 # Same as 'SKIP_BLOCKCHAIN_INVERVAlS', but for Bitstamp requests.
+SKIP_BITSTAMP_INTERVALS=0 # Same as 'SKIP_BLOCKCHAIN_INVERVAlS', but for Bitstamp requests.
 
 # Don't modify code beneath this comment unless you know what you're doing ;).
 
@@ -48,6 +48,9 @@ WHITE="\e[97m"
 while true; do
 	if [ "$PRICE" == "FAILED" ] || [ "$SKIP_BITSTAMP_INTERVALS" -eq 0 ] || [ "$(($COUNTER % ($SKIP_BITSTAMP_INTERVALS + 1)))" -eq 0 ] ; then
 		PRICE=`curl --get --silent $BITSTAMP_API_URL | jshon -e last -u 2> /dev/null || echo -1`
+		if [ "$PRICE" != "-1" ] ; then
+			PRICE="$"$PRICE
+		fi
 	fi
 	if [ "$HEIGHT" == "FAILED" ] || [ "$TIME_DELTA_HUMAN" == "FAILED" ] || [ "$SKIP_BLOCKCHAIN_INVERVALS" -eq 0 ] || [ "$(($COUNTER % ($SKIP_BLOCKCHAIN_INVERVALS + 1)))" -eq 0 ] ; then
 		BLOCKCHAIN_OUTPUT=`curl --get --silent $BLOCKCHAIN_API_URL`
@@ -58,8 +61,6 @@ while true; do
 	if [ "$PRICE" == "-1" ] ; then
 		echo -en $RED"\nExtracting latest price information failed."$DEFAULT
 		PRICE="FAILED"
-	else
-		PRICE="$"$PRICE
 	fi
 
 	if [ "$HEIGHT" == "-1" ] || [ "$TIME" == "-1" ] ; then
