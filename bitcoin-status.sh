@@ -2,8 +2,8 @@
 #title			:bitcoin-status..sh
 #description	:This scripts continuously displays bitcoin price from Bitstamp.net market (value of one BTC in USD) and the latest block height and age from BlockChain.info.
 #author			:Kristjan Kaitsa
-#date			:20140214
-#version		:1.3.0
+#date			:20140218
+#version		:1.4.0
 #usage:			:bash bitcoin-status.sh
 #notes:			:Install cURL and Jshon to use the script. Press Ctrl+C to exit script.
 #bash_version:	:4.2-5ubuntu3
