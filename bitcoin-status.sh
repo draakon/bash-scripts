@@ -72,7 +72,7 @@ while true; do
 		TIME_DELTA_HUMAN="$(($TIME_DELTA / 60))m $(($TIME_DELTA % 60))s"
 	fi
 	
-	echo -ne "\n[" && echo -n `date +"$TIME_FORMAT"` && echo -ne "] LAST PRICE: "$PRICE"\tHEIGHT: "$HEIGHT"\tAGE: "$TIME_DELTA_HUMAN
+	echo -ne "\n"$WHITE"[" && echo -n `date +"$TIME_FORMAT"` && echo -ne "]"$DEFAULT" LAST PRICE: "$PRICE"\tHEIGHT: "$HEIGHT"\tAGE: "$TIME_DELTA_HUMAN
 	
 	sleep $INTERVAL
 	
