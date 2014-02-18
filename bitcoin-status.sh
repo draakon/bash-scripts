@@ -8,8 +8,6 @@
 #notes:			:Install cURL and Jshon to use the script. Press Ctrl+C to exit script.
 #bash_version:	:4.2-5ubuntu3
 
-#TODO:
-#* colours
 
 # Check those variables and make your modifications if necessary:
 
@@ -19,7 +17,7 @@ BLOCKCHAIN_API_URL="https://blockchain.info/latestblock"
 
 TIME_FORMAT="%H:%M %e.%d.%Y" # format in what you want timestamp to be, check for variables: http://www.linuxmanpages.com/man1/date.1.php
 INTERVAL=60 # in seconds, set it by checking API request limits
-SKIP_BLOCKCHAIN_INVERVALS=4 # How many invevals skip blockchain request. E.g. if 0, then every interval (default 60s) is blockchain request made; if 1, then every other interval (skip one interval) and so on. May be necessary, because difference in API request limits.
+SKIP_BLOCKCHAIN_INVERVALS=8 # How many invevals skip blockchain request. E.g. if 0, then every interval (default 60s) is blockchain request made; if 1, then every other interval (skip one interval) and so on. May be necessary, because difference in API request limits.
 SKIP_BITSTAMP_INTERVALS=1 # Same as 'SKIP_BLOCKCHAIN_INVERVAlS', but for Bitstamp requests.
 
 # Don't modify code beneath this comment unless you know what you're doing ;).
@@ -38,6 +36,13 @@ YELLOW="\e[33m"
 BLUE="\e[34m"
 MAGENTA="\e[35m"
 CYAN="\e[36m"
+LIGHT_RED="\e[91m"
+LIGHT_GREEN="\e[92m"
+LIGHT_YELLOW="\e[93m"
+LIGHT_BLUE="\e[94m"
+LIGHT_MAGENTA="\e[95m"
+LIGHT_CYAN="\e[96m"
+WHITE="\e[97m"
 
 # don't want to use 'watch', because it runs in full screen mode
 while true; do
